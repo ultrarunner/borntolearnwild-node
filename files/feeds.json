@@ -1,0 +1,92 @@
+{
+    "feeds": [
+        {
+            "title": "Freakonomics Radio Podcast",
+            "url": "https://rss.art19.com/freakonomics-radio",
+            "type": "rss",
+            "tags": "economics, podcast",
+            "options": {}
+        },
+        {
+            "title": "Simple Talk Blog from Red Gate",
+            "url": "https://www.red-gate.com/simple-talk/feed/",
+            "type": "rss",
+            "tags": "code, .net, sql",
+            "options": {}
+        },
+        {
+            "title": "Ars Technica Rss Feed",
+            "url": "http://feeds.arstechnica.com/arstechnica/index",
+            "type": "rss",
+            "tags": [
+                "tech"
+            ],
+            "options": {}
+        },
+        {
+            "title": "New York Times",
+            "url": "",
+            "type": "nyt",
+            "tags": [
+                "news, politics"
+            ],
+            "options": {
+                "section": "World"
+            }
+        },
+        {
+            "title": "NASA Picture of the Day",
+            "url": "",
+            "type": "nasa",
+            "tags": [
+                "science"
+            ],
+            "options": {}
+        },
+        {
+            "title": "The HanselMinutes Podcast",
+            "url": "https://rss.simplecast.com/podcasts/4669/rss",
+            "type": "rss",
+            "tags": [
+                "code"
+            ],
+            "options": {}
+        },
+        {
+            "title": "Washington Post - World",
+            "url": "http://feeds.washingtonpost.com/rss/rss_blogpost",
+            "type": "rss",
+            "tags": [
+                "politics, world"
+            ],
+            "options": {}
+        },
+        {
+            "title": "Washington Post - Tech",
+            "url": "http://feeds.washingtonpost.com/rss/blogs/rss_the-switch",
+            "type": "rss",
+            "tags": [
+                "policy, tech"
+            ],
+            "options": {}
+        },
+        {
+            "title": "Uncle 'Bob' Martin Blog",
+            "url": "https://blog.cleancoder.com/atom.xml",
+            "type": "rss",
+            "tags": [
+                "code, agile"
+            ],
+            "options": {}
+        },
+        {
+            "title": "Martin Fowler's Blog",
+            "url": "https://martinfowler.com/feed.atom",
+            "type": "rss",
+            "tags": [
+                "code, architecture"
+            ],
+            "options": {}
+        }
+    ]
+}
