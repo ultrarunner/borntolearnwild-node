@@ -51,7 +51,6 @@ app.get('/v2/rss', asyncMiddleware(async (req, res, next) => {
 // nasa api
 app.get('/v2/nasa', asyncMiddleware(async (req, res, next) => {
     const apikey = 'nwgbo5cwbDprLNQPWvBureFQ2oXuCc3Oqw6aBBEg';
-    const section = req.params.section;
     let feed = {};
     const apiURL = `https://api.nasa.gov/planetary/apod?api_key=${apikey}`;
     request.get({
