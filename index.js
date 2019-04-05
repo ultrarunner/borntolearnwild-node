@@ -1,3 +1,9 @@
+const dotenv = require('dotenv');
+const result = dotenv.config();
+if (result.error) {
+    throw result.error;
+}
+// console.log(result.parsed);
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
@@ -11,7 +17,9 @@ const _defaultTake = 7;
 
 app.use(cors());
 // used to parse the body of the request
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
 
 // asynchronous call with try/catch embeddded
 app.get('/v1/rss', async (req, res, next) => {
@@ -50,9 +58,9 @@ app.get('/v2/rss', asyncMiddleware(async (req, res, next) => {
 
 // nasa api
 app.get('/v2/nasa', asyncMiddleware(async (req, res, next) => {
-    const apikey = 'nwgbo5cwbDprLNQPWvBureFQ2oXuCc3Oqw6aBBEg';
-    let feed = {};
     const apiURL = `https://api.nasa.gov/planetary/apod?api_key=${apikey}`;
+    const apikey = process.env.APIKEY_NASA;
+    let feed = {};
     request.get({
         url: apiURL,
     }, (err, response, body) => {
@@ -63,7 +71,6 @@ app.get('/v2/nasa', asyncMiddleware(async (req, res, next) => {
             feed.results = topEntries;
         } catch (e) {
             console.log('An error occured while trying to call the NASA API: ' + apiURL);
-            console.log(body);
         }
         res.status(200).send(feed);
     })
@@ -71,13 +78,13 @@ app.get('/v2/nasa', asyncMiddleware(async (req, res, next) => {
 
 // new york times api
 app.get('/v2/nyt/:section', asyncMiddleware(async (req, res, next) => {
-    const apikey = 'ddaa74ef8a3d2b23e69f612bbd6c0321:3:70269458';
+    const apiURL = `https://api.nytimes.com/svc/topstories/v2/${section}.json`;
+    const apikey = process.env.APIKEY_NYT;
     const section = req.params.section;
     let feed = {};
     if (!section) {
         res.status(500).send('Missing SECTION parameter...');
     }
-    const apiURL = `https://api.nytimes.com/svc/topstories/v2/${section}.json`;
     request.get({
         url: apiURL,
         qs: {

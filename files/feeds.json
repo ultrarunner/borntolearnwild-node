@@ -87,6 +87,24 @@
                 "code, architecture"
             ],
             "options": {}
+        },
+        {
+            "title": "Adventures in Angular",
+            "url": "http://feeds.feedwrench.com/AdventuresInAngular.rss",
+            "type": "rss",
+            "tags": [
+                "code, angular, javascript"
+            ],
+            "options": {}
+        },
+        {
+            "title": "Javascript Jabber",
+            "url": "https://feeds.feedwrench.com/JavaScriptJabber.rss",
+            "type": "rss",
+            "tags": [
+                "code, javascript"
+            ],
+            "options": {}
         }
     ]
 }

@@ -1,0 +1,26 @@
+{
+    "quotes": [{
+            "content": "The three great enemies of working from home are the bed, the fridge and the TV.",
+            "source": "https://dts.podtrac.com/redirect.mp3/rss.art19.com/episodes/07fdee4d-514c-4407-9ac2-f8c111c35ebb.mp3",
+            "author": "['Nicholas Bloom']",
+            "tags": "productivity",
+            "options": {}
+        },
+        {
+            "content": "Cleverness is a gift. Kindness is a choice.",
+            "source": "Princeton Baccalaurate Speech (2010)",
+            "author": "['Jeff Bezos']",
+            "tags": "inspirational",
+            "options": {}
+        },
+        {
+            "content": "Cloud computing relieved users of physical infrastructure management but left them with a proliferation of  virtual resources to manage.",
+            "source": "Cloud Programming Simplified: A Berkeley View onServerless Computing",
+            "authors": "['Electrical Engineering and Computer SciencesUniversity of California at Berkeley']",
+            "tags": "inspirational",
+            "options": {
+                "url": "https://www2.eecs.berkeley.edu/Pubs/TechRpts/2019/EECS-2019-3.html"
+            }
+        }
+    ]
+}
