@@ -1,6 +1,5 @@
 {
-    "feeds": [
-        {
+    "feeds": [{
             "title": "Freakonomics Radio Podcast",
             "url": "https://rss.art19.com/freakonomics-radio",
             "type": "rss",
@@ -16,7 +15,7 @@
         },
         {
             "title": "Ars Technica Rss Feed",
-            "url": "http://feeds.arstechnica.com/arstechnica/index",
+            "url": "http://feeds.arstechnica.com/arstechnica/software",
             "type": "rss",
             "tags": [
                 "tech"
@@ -63,7 +62,7 @@
         },
         {
             "title": "Washington Post - Tech",
-            "url": "http://feeds.washingtonpost.com/rss/blogs/rss_the-switch",
+            "url": "http://feeds.washingtonpost.com/rss/rss_innovations",
             "type": "rss",
             "tags": [
                 "policy, tech"
