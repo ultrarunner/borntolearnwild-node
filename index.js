@@ -25,7 +25,6 @@ app.use(bodyParser.urlencoded({
 app.get('/v1/rss', async (req, res, next) => {
     try {
         const feedUrl = req.query.url;
-        console.log(feedUrl);
         const feed = await parser.parseURL(feedUrl);
         res.send(feed);
     } catch (e) {
@@ -53,22 +52,19 @@ app.get('/v2/rss', asyncMiddleware(async (req, res, next) => {
     } catch (e) {
         console.log('An error occured while trying to parse the following RSS feed: ' + feedUrl);
     }
-    res.send(feed);
+    res.status(200).send(feed);
 }));
 
 // nasa api
 app.get('/v2/nasa', asyncMiddleware(async (req, res, next) => {
-    const apiURL = `https://api.nasa.gov/planetary/apod?api_key=${apikey}`;
     const apikey = process.env.APIKEY_NASA;
+    const apiURL = `https://api.nasa.gov/planetary/apod?api_key=${apikey}`;
     let feed = {};
     request.get({
         url: apiURL,
     }, (err, response, body) => {
         try {
             feed = JSON.parse(body);
-            const take = Number(req.query.take || _defaultTake) + 1;
-            const topEntries = feed.results.slice(1, take);
-            feed.results = topEntries;
         } catch (e) {
             console.log('An error occured while trying to call the NASA API: ' + apiURL);
         }
@@ -78,9 +74,10 @@ app.get('/v2/nasa', asyncMiddleware(async (req, res, next) => {
 
 // new york times api
 app.get('/v2/nyt/:section', asyncMiddleware(async (req, res, next) => {
-    const apiURL = `https://api.nytimes.com/svc/topstories/v2/${section}.json`;
     const apikey = process.env.APIKEY_NYT;
     const section = req.params.section;
+    const take = req.params.take || _defaultTake;
+    const apiURL = `https://api.nytimes.com/svc/topstories/v2/${section}.json`;
     let feed = {};
     if (!section) {
         res.status(500).send('Missing SECTION parameter...');
@@ -88,7 +85,8 @@ app.get('/v2/nyt/:section', asyncMiddleware(async (req, res, next) => {
     request.get({
         url: apiURL,
         qs: {
-            'api-key': apikey
+            'api-key': apikey,
+            'take': take
         },
     }, (err, response, body) => {
         try {
