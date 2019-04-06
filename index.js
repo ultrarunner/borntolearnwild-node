@@ -52,7 +52,7 @@ app.get('/v2/rss', asyncMiddleware(async (req, res, next) => {
     } catch (e) {
         console.log('An error occured while trying to parse the following RSS feed: ' + feedUrl);
     }
-    res.send(feed);
+    res.status(200).send(feed);
 }));
 
 // nasa api
@@ -65,9 +65,6 @@ app.get('/v2/nasa', asyncMiddleware(async (req, res, next) => {
     }, (err, response, body) => {
         try {
             feed = JSON.parse(body);
-            const take = Number(req.query.take || _defaultTake) + 1;
-            const topEntries = feed.results.slice(1, take);
-            feed.results = topEntries;
         } catch (e) {
             console.log('An error occured while trying to call the NASA API: ' + apiURL);
         }
