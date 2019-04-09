@@ -1,0 +1,8 @@
+version: '1'
+  services:
+    app:
+      image: borntolearnwild-node:1.0
+      env_file:
+        - .env
+      ports:
+        - 8080:8080

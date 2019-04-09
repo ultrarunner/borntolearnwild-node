@@ -1,0 +1,6 @@
+# pull the docker image
+FROM node:8-alpine
+WORKDIR .
+COPY . .
+RUN npm install --production
+CMD ["node", "index.js"]
