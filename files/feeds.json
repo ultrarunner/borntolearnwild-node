@@ -14,8 +14,8 @@
             "options": {}
         },
         {
-            "title": "Ars Technica Rss Feed",
-            "url": "http://feeds.arstechnica.com/arstechnica/software",
+            "title": "Ars Technica Rss Feed - Technology",
+            "url": "http://feeds.arstechnica.com/arstechnica/technology-lab",
             "type": "rss",
             "tags": [
                 "tech"

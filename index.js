@@ -78,6 +78,8 @@ app.get('/v2/nyt/:section', asyncMiddleware(async (req, res, next) => {
     const section = req.params.section;
     const take = req.params.take || _defaultTake;
     const apiURL = `https://api.nytimes.com/svc/topstories/v2/${section}.json`;
+
+    console.log(apiURL)
     let feed = {};
     if (!section) {
         res.status(500).send('Missing SECTION parameter...');
@@ -85,8 +87,7 @@ app.get('/v2/nyt/:section', asyncMiddleware(async (req, res, next) => {
     request.get({
         url: apiURL,
         qs: {
-            'api-key': apikey,
-            'take': take
+            'api-key': apikey
         },
     }, (err, response, body) => {
         try {
